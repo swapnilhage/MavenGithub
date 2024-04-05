@@ -35,8 +35,7 @@ public class LoginTest extends Base_Class {
 		
 		System.out.println(prop.getProperty("url"));
 		driver.get(prop.getProperty("url"));
-		driver.manage().window().maximize();
-		
+		driver.manage().window().maximize();	
 		login = new Login_Page(driver);
 	}
 	
