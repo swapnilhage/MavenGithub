@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
 import Base_Pack.Base_Class;
+import POM_Pack.LandingPage;
 import POM_Pack.Login_Page;
 import Util_Pack.Util;
 
@@ -20,28 +21,28 @@ public class LoginTest extends Base_Class {
 	Properties prop;
 	FileInputStream propfile;
 	Login_Page login;
+	LandingPage landingpage;
 	
 	@org.testng.annotations.BeforeClass
 	public void BeforeClass() {
 		
 		driver = openChromeBrowser();	
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		login = new Login_Page(driver);
+		landingpage = new LandingPage(driver);
 	}
 	
 	@org.testng.annotations.BeforeMethod
-	public void BeforeMethod() throws IOException {
-		
+	public void BeforeMethod() throws IOException {	
 		prop = property();
 		
-		System.out.println(prop.getProperty("url"));
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
-		
-		login = new Login_Page(driver);
 	}
 	
 	@Test
-	public void loginTest() {
+	public void loginTest() throws InterruptedException {
 		
 		login.click_Advancedbtn();
 		login.proceedlink();
@@ -50,8 +51,8 @@ public class LoginTest extends Base_Class {
 		login.userName(prop.getProperty("username"));
 		login.password(prop.getProperty("password"));
 		login.signinBtn();
-		
-		String validationMsg = login.getValidationMsg();
+		Thread.sleep(1000);
+		String validationMsg = landingpage.getValidationMsg();
 		System.out.println(validationMsg);
 	}
 }
