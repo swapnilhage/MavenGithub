@@ -50,9 +50,6 @@ public class ExcelTest extends Base_Class {
 	@Test
 	public void exceltest() throws EncryptedDocumentException, IOException, InterruptedException {
 		
-		login.click_Advancedbtn();
-		login.proceedlink();
-		
 		Util reader = new Util();
 		int rowcount = reader.getRowCount(xlsfile, "UNP");
 		System.out.println("Rowcount   "+rowcount);

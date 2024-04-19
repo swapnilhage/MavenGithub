@@ -17,7 +17,8 @@ public class Base_Class {
 			
 		System.setProperty("webdriver.chrome.driver", "D:\\Swapnil\\SH\\chromedriver-win64\\chromedriver.exe");
 		ChromeOptions co = new ChromeOptions();
-		co.addArguments("--remote-allow.origins=*");
+		co.setAcceptInsecureCerts(true);
+	//	co.addArguments("--remote-allow.origins=*");
 		WebDriver driver = new ChromeDriver(co);
 		return driver;
 	}

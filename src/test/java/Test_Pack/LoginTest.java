@@ -44,8 +44,6 @@ public class LoginTest extends Base_Class {
 	@Test
 	public void loginTest() throws InterruptedException {
 		
-		login.click_Advancedbtn();
-		login.proceedlink();
 		login.selectRepo(prop.getProperty("repo"));
 		login.click_Nextbtn();
 		login.userName(prop.getProperty("username"));

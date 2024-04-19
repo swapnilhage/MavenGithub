@@ -52,8 +52,6 @@ public class CreateUserTest extends Base_Class {
 	@Test (priority = 1)
 	public void loginTest() throws InterruptedException {
 		
-		login.click_Advancedbtn();
-		login.proceedlink();
 		login.selectRepo(prop.getProperty("repo"));
 		login.click_Nextbtn();
 		login.userName(prop.getProperty("username"));
